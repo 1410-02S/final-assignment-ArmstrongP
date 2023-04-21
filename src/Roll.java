@@ -20,7 +20,7 @@ public class Roll {
         return numberOfCouples;
     }
 
-
+    //Inherits spawining to roll for if a new creature spawns into the world
     public static int spawning(){
         int numberOfSpawns = 0;
         World worldSpawnObject = new World();
@@ -30,6 +30,7 @@ public class Roll {
         return numberOfSpawns;
     }
 
+    //Inherits Food from world to roll for how much new food enters the world 
     public static int starvation(){
         int deathsFromStarvation = 0;
         World worldFoodObject = new World();
@@ -43,6 +44,7 @@ public class Roll {
         return deathsFromStarvation;
     }
 
+    //Inherits Death from creatrue to roll for if a creature dies
     public static int dying(){
         int deathsFromDeath = 0;
         Creature creatureDeathObject = new Creature();
@@ -63,9 +65,10 @@ public class Roll {
             int foodDeaths = starvation();
             int expiredCreatures = dying();
 
+            //sums the results from all inherited objects to produce a running total of living creatures
             creatureNumber = creatureNumber+(totalSpawns + newBabies - foodDeaths - expiredCreatures);
             System.out.println("Number of creatures is: "+creatureNumber+" Amount of food is: "+foodNumber);
-            Thread.sleep(50);
+            Thread.sleep(100);
         }
         
     }
